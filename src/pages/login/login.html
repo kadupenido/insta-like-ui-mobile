@@ -1,0 +1,17 @@
+<ion-content padding>
+
+  <h1>Insta Like</h1>
+
+  <form (ngSubmit)="loginForm()">
+    <ion-item>
+      <ion-label stacked>Usuário</ion-label>
+      <ion-input type="text" [(ngModel)]="login.user" name="user"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="login.password" name="password"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button type="submit" block color="dark">LOGIN</button>
+  </form>
+</ion-content>
