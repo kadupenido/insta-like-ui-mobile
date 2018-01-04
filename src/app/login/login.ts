@@ -3,6 +3,7 @@ import { Alert, AlertController, Loading, LoadingController, MenuController, Nav
 
 import { AuthService } from './../auth/auth.service';
 import { HomePage } from './../home/home';
+import { FollowPage } from '../follow/follow';
 
 @Component({
   selector: 'page-login',
@@ -63,7 +64,7 @@ export class LoginPage implements OnInit {
    */
   private redirectHome() {
     this.menu.enable(true, 'mainMenu');
-    this.navCtrl.setRoot(HomePage);
+    this.navCtrl.setRoot(FollowPage);
   }
 
   /**

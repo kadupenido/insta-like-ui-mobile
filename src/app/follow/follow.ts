@@ -1,39 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, Loading } from 'ionic-angular';
 
-import { HomeService } from './home.service';
+import { FollowService } from './follow.service';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'follow.html'
 })
-export class HomePage implements OnInit {
+export class FollowPage implements OnInit {
 
   loading: Loading;
-  me: {} = {}
 
   constructor(
     public navCtrl: NavController,
-    public homeService: HomeService,
+    public followService: FollowService,
     public loadingCtrl: LoadingController) {
 
   }
 
   ngOnInit() {
 
-    this.showLoading();
-
-    this.homeService.me().then((res: any) => {
-
-      if (res.success) {
-        this.me = res.data
-      } else {
-
-      }
-
-      this.loading.dismiss();
-
-    });
   }
 
   /**

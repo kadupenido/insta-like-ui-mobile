@@ -3,14 +3,71 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>{{me.username}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img [src]="me.profilePicUrl" alt="avatar" class="avatar">
+      </ion-col>
+      <ion-col col-8 align-self-center>
+        <h2>{{me.fullName}}</h2>
+        <p>{{me.biography}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <hr>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            Followers
+          </ion-card-header>
+          <ion-card-content>
+            000
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            Following
+          </ion-card-header>
+          <ion-card-content>
+            000
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            New Followers
+          </ion-card-header>
+          <ion-card-content>
+            000
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            Followers Lost
+          </ion-card-header>
+          <ion-card-content>
+            000
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

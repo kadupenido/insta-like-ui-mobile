@@ -10,6 +10,10 @@ export class AuthService {
   constructor(public http: HttpClient) {
   }
 
+  /**
+   * Realiza o login
+   * @param data user, password
+   */
   public login(data) {
 
     const url = `${this.baseUrl}/authenticate/`;
@@ -31,6 +35,13 @@ export class AuthService {
       };
     });
 
+  }
+
+  /**
+   * Realiza o logout
+   */
+  public logout() {
+    localStorage.removeItem(config.tokenName);
   }
 
   /**

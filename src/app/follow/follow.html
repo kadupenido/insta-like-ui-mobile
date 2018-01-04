@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Follow</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label stacked>Seguir por</ion-label>
+        <ion-select>
+            <ion-option value="1">Localização</ion-option>
+            <ion-option value="2">Hashtag</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Local</ion-label>
+        <ion-input type="text" value="Betim" readonly="true"></ion-input>
+        <button ion-button icon-end item-end color="dark">
+            Buscar
+            <ion-icon name="search"></ion-icon>
+        </button>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Gênero</ion-label>
+        <ion-select>
+            <ion-option value="1">Masculino</ion-option>
+            <ion-option value="2">Feminino</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Quantidade</ion-label>
+        <ion-input type="number"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button color="dark" large full>Follow</button>
+    <br>
+
+</ion-content>

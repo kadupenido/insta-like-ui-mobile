@@ -8,6 +8,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { FollowModule } from './follow/follow.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 
@@ -22,7 +23,8 @@ import { LoginModule } from './login/login.module';
     IonicStorageModule.forRoot(),
     AuthModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    FollowModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

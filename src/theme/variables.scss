@@ -14,7 +14,6 @@ $app-direction: ltr;
 
 @import "ionic.globals";
 
-
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -41,7 +40,7 @@ $colors: (
   dark:       #222
 );
 
-$toolbar-background: color($colors, dark);
+//$toolbar-background: color($colors, dark);
 
 // App iOS Variables
 // --------------------------------------------------
@@ -53,7 +52,7 @@ $toolbar-background: color($colors, dark);
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$toolbar-background: color($colors, dark);
 
 
 

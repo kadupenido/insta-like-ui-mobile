@@ -2,22 +2,22 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
-import { HomePage } from './home';
-import { HomeService } from './home.service';
+import { FollowPage } from './follow';
+import { FollowService } from './follow.service';
 
 @NgModule({
   declarations: [
-      HomePage
+    FollowPage
   ],
   imports: [
     CommonModule,
-    IonicPageModule.forChild(HomePage)
+    IonicPageModule.forChild(FollowPage)
   ],
   entryComponents: [
-    HomePage
+    FollowPage
   ],
   providers:[
-    HomeService
+    FollowService
   ]
 })
-export class HomeModule { }
+export class FollowModule { }
