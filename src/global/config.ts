@@ -1,3 +1,4 @@
 export const config = {
-    baseUrl: '//192.168.25.147:3000'
+    tokenName: 'ilToken',
+    baseUrl: '//192.168.1.2:3000'
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, MenuController, NavController, NavParams, AlertController, Loading, Alert } from 'ionic-angular';
+import { Alert, AlertController, Loading, LoadingController, MenuController, NavController, NavParams } from 'ionic-angular';
 
-import { LoginProvider } from './../../providers/login/login';
+import { AuthService } from './../auth/auth.service';
 import { HomePage } from './../home/home';
 
 @Component({
@@ -19,25 +19,20 @@ export class LoginPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     public menu: MenuController,
-    public loginProvider: LoginProvider,
     public loadingCtrl: LoadingController,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private authService: AuthService) {
   }
 
   ngOnInit() {
-
-
 
     //Desabilita o menu
     this.menu.enable(false, 'mainMenu');
 
     //Verifica se esta logado para redirecionar para a home
-    this.loginProvider.isLoggedIn().then((logged) => {
-
-      if (logged) this.redirectHome();
-
-
-    });
+    if (this.authService.isLoggedIn()) {
+      this.redirectHome();
+    }
   }
 
   /**
@@ -49,7 +44,7 @@ export class LoginPage implements OnInit {
     this.showLoading();
 
     //Realiza o login
-    this.loginProvider.login(this.login).then((res: any) => {
+    this.authService.login(this.login).then((res: any) => {
 
       //Remove o spinner
       this.loading.dismiss();

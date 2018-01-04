@@ -1,11 +1,10 @@
-import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Nav, Platform } from 'ionic-angular';
 
-import { HomePage } from '../pages/home/home';
-import { LoginProvider } from './../providers/login/login';
+import { HomePage } from './home/home';
+import { LoginPage } from './login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,8 +19,7 @@ export class MyApp {
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen,
-    private loginProvider: LoginProvider) {
+    public splashScreen: SplashScreen) {
 
     this.initializeApp();
   }

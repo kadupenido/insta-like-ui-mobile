@@ -1,15 +1,13 @@
 import { config } from './../../global/config';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
 
 @Injectable()
-export class LoginProvider {
+export class AuthService {
 
-  private tokenName: String = 'ilToken';
   private baseUrl = config.baseUrl + '/auth';
 
-  constructor(public http: HttpClient, private storage: Storage) {
+  constructor(public http: HttpClient) {
   }
 
   public login(data) {
@@ -19,10 +17,9 @@ export class LoginProvider {
 
     return this.http.post(url, body).toPromise().then((res) => {
 
-      console.log(res);
-      return {
-        success: false
-      };
+      localStorage.setItem(config.tokenName, JSON.stringify(res));
+
+      return { success: true };
 
     }, (err) => {
 
@@ -32,7 +29,6 @@ export class LoginProvider {
         success: false,
         message: err.error.message.message || err.message || err
       };
-
     });
 
   }
@@ -40,15 +36,14 @@ export class LoginProvider {
   /**
    * Verifica se o usuario esta logado
    */
-  public isLoggedIn(): Promise<Boolean> {
+  public isLoggedIn(): Boolean {
 
-    return this.storage.get('ilToken').then((val) => {
+    const token = JSON.parse(localStorage.getItem(config.tokenName));
+    return token && new Date(token.exp) > new Date();
+  }
 
-      return false;
-    }, (err) => {
-      console.error(err);
-      return false;
-    });
+  public getToken(): string {
+    return JSON.parse(localStorage.getItem(config.tokenName)).token;
   }
 
 }
