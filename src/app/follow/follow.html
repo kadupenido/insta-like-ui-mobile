@@ -9,37 +9,48 @@
 
 <ion-content padding>
 
-    <ion-item>
-        <ion-label stacked>Seguir por</ion-label>
-        <ion-select>
-            <ion-option value="1">Localização</ion-option>
-            <ion-option value="2">Hashtag</ion-option>
-        </ion-select>
-    </ion-item>
+    <form (ngSubmit)="follow()">
+        <ion-item>
+            <ion-label stacked>Seguir por</ion-label>
+            <ion-select [(ngModel)]="followFrm.seguirPor" name="seguirPor">
+                <ion-option value="1">Localização</ion-option>
+                <ion-option value="2">Hashtag</ion-option>
+            </ion-select>
+        </ion-item>
 
-    <ion-item>
-        <ion-label stacked>Local</ion-label>
-        <ion-input type="text" value="Betim" readonly="true"></ion-input>
-        <button ion-button icon-end item-end color="dark">
-            Buscar
-            <ion-icon name="search"></ion-icon>
-        </button>
-    </ion-item>
+        <ion-item *ngIf="followFrm.seguirPor == 1">
+            <ion-label stacked>Local</ion-label>
+            <ion-input type="text" readonly="true" [(ngModel)]="followFrm.locationName" name="locationName"></ion-input>
+            <button ion-button icon-end item-end color="dark" (click)="openLocationSearch()">
+                Buscar
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-item>
 
-    <ion-item>
-        <ion-label stacked>Gênero</ion-label>
-        <ion-select>
-            <ion-option value="1">Masculino</ion-option>
-            <ion-option value="2">Feminino</ion-option>
-        </ion-select>
-    </ion-item>
+        <ion-item *ngIf="followFrm.seguirPor == 2">
+            <ion-label stacked>Hashtag</ion-label>
+            <ion-input type="text" [(ngModel)]="followFrm.locationName" name="locationName"></ion-input>
+            <button ion-button icon-end item-end color="dark">
+                Buscar
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-item>
 
-    <ion-item>
-        <ion-label stacked>Quantidade</ion-label>
-        <ion-input type="number"></ion-input>
-    </ion-item>
-    <br>
-    <button ion-button color="dark" large full>Follow</button>
+        <ion-item>
+            <ion-label stacked>Gênero</ion-label>
+            <ion-select [(ngModel)]="followFrm.genero" name="genero">
+                <ion-option value="1">Masculino</ion-option>
+                <ion-option value="2">Feminino</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Quantidade</ion-label>
+            <ion-input type="number" [(ngModel)]="followFrm.quantidade" name="quantidade"></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button color="dark" large full type="submit">Follow</button>
+    </form>
     <br>
 
 </ion-content>

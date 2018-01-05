@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Buscar Local</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label stacked>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="localName" name="localName" autocomplete="on" autocorrect="on">
+        </ion-input>
+        <button ion-button icon-end item-end color="dark" (click)="buscarLocal()">
+            Buscar
+            <ion-icon name="search"></ion-icon>
+        </button>
+    </ion-item>
+
+    <br>
+
+    <ion-list>
+        <ion-item icon-start *ngFor="let local of locations">
+            <!-- <ion-icon item-start name="pin"></ion-icon> -->
+            <h2>
+                <b>{{local.title}}</b>
+            </h2>
+            <p>{{local.address}}</p>
+            <button ion-button clear item-end icon-only color="dark" (click)="visualizarLocal(local)">
+                <ion-icon item-start name="eye"></ion-icon>
+            </button>
+            <button ion-button clear item-end icon-only color="dark" (click)="selecionarLocal(local)">
+                    <ion-icon item-start name="checkmark"></ion-icon>
+                </button>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -4,20 +4,28 @@ import { IonicPageModule } from 'ionic-angular';
 
 import { FollowPage } from './follow';
 import { FollowService } from './follow.service';
+import { LocationSearchPage } from './location-search';
+import { LocationService } from './location-service';
+import { LocationViewPage } from './location-view';
 
 @NgModule({
   declarations: [
-    FollowPage
+    FollowPage,
+    LocationSearchPage,
+    LocationViewPage
   ],
   imports: [
     CommonModule,
     IonicPageModule.forChild(FollowPage)
   ],
   entryComponents: [
-    FollowPage
+    FollowPage,
+    LocationSearchPage,
+    LocationViewPage
   ],
   providers:[
-    FollowService
+    FollowService,
+    LocationService
   ]
 })
 export class FollowModule { }
